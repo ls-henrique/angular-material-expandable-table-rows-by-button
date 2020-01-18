@@ -1,6 +1,5 @@
 <div class="example-container mat-elevation-z8">
 	<mat-table #table [dataSource]="dataSource" multiTemplateDataRows matSort>
-
 		<!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
@@ -30,19 +29,20 @@
 		</ng-container>
 
 		<ng-container matColumnDef="action">
-			<mat-header-cell *matHeaderCellDef> action </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef mat-sort-header> action </mat-header-cell>
 			<mat-cell *matCellDef="let element">
-				<!-- <button (click)="expandedElement = expandedElement === element ? null : element">test</button> -->
-
-				<button *ngIf="expandedElement != element" [class.expanded]="expandedElement == element"
-                    (click)="expandedElement = element"><mat-icon>keyboard_arrow_down</mat-icon>
-                    </button>
-				<button *ngIf="expandedElement == element" [class.expanded]="expandedElement == undefined"
-                    (click)="expandedElement = undefined"><mat-icon>keyboard_arrow_up</mat-icon></button>
+				<button  mat-icon-button *ngIf="expandedElement != element" 
+                [class.expanded]="expandedElement == element"
+                (click)="expandedElement = element">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+				<button  mat-icon-button *ngIf="expandedElement == element" 
+                [class.expanded]="expandedElement == undefined"
+                (click)="expandedElement = undefined">
+                <mat-icon>keyboard_arrow_up</mat-icon>
+        </button>
 			</mat-cell>
 		</ng-container>
-
-
 
 		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>

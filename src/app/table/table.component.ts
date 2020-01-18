@@ -17,38 +17,26 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 export class TableComponent implements OnInit, AfterViewInit {
 
   displayedColumns = ['position', 'name', 'weight', 'action'];
-  dataSource: MatTableDataSource<any>;
+  dataSource: MatTableDataSource<Element>;
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  
   expandedElement: any;
-  opened: boolean = false;
-
-  @HostBinding('class.expanded')
-  get expended(): boolean {
-    return this.opened;
-  }
-
-
+  
   constructor() {
-
     this.dataSource = new MatTableDataSource();
   }
 
-  ngOnInit() {
-    let rows = [];
-    data.forEach(element => rows.push(element, { detailRow: true, element }));
+  ngOnInit() {        
     this.dataSource.data = data;
   }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;    
   }
 }
-
 
 export interface Element {
   name: string;
