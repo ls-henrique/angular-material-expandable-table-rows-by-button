@@ -1,3 +1,3 @@
-# angular-zbpdyr
+# angular-material-expandable-table-rows-using-button
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-zbpdyr)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-material-expandable-table-rows-using-button)
