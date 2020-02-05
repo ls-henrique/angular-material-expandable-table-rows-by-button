@@ -19,8 +19,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   displayedColumns = ['position', 'name', 'weight', 'action'];
   dataSource: MatTableDataSource<Element>;
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild('MatPaginator', { static: false }) paginator: MatPaginator;
+  @ViewChild('sort', { static: false }) sort: MatSort;
   
   expandedElement: any;
   

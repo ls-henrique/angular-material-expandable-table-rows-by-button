@@ -1,5 +1,5 @@
 <div class="example-container mat-elevation-z8">
-	<mat-table #table [dataSource]="dataSource" multiTemplateDataRows matSort>
+	<mat-table #table [dataSource]="dataSource" multiTemplateDataRows matSort #sort="matSort">
 		<!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
@@ -50,7 +50,7 @@
 			[@detailExpand]="row == expandedElement ? 'expanded' : 'collapsed'" style="overflow: hidden">
 		</mat-row>
 	</mat-table>
-	<mat-paginator class="paginator" pageSize="5"></mat-paginator>
+	<mat-paginator class="paginator" #MatPaginator pageSize="5"></mat-paginator>
 </div>
 
 
